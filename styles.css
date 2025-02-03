@@ -1,0 +1,83 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(#fff5ce,#f0dee6); /* Fondo color papel */
+    font-family: 'typewriter', sans-serif; /* Fuente máquina de escribir */
+}
+
+
+
+@keyframes heartbeat {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.05);}
+    100% {transform: scale(1);}
+}
+
+.letter {
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    width: 500px;
+    height: 745px;
+    margin-top: -65px;
+    margin-left: -80px;
+    background-color: #feeef5; /* Color papel antiguo */
+    border-radius: 20px;
+    padding: 20px;
+    transform-origin: top center;
+    transform: perspective(500px) rotateX(-90deg);
+    transition: transform 1s;
+}
+
+.letter.open {
+    transform: perspective(600px) rotateX(0deg);
+}
+
+.envelope {
+    position: relative;
+    cursor: pointer;
+    animation: heartbeat 1s ease-in-out infinite;
+}
+
+#heart:before, #heart:after {
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: #f85e6c; /* color de fondo del corazón */
+    border-radius: 50px 50px 0 0;
+}
+
+#heart:before {
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+#heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin :100% 100%;
+}
+
+.letter .images {
+    position: absolute;
+    top: 20px;
+    left: -175px;
+    display: flex;
+    flex-direction: column;
+}
+
+.letter .images img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px);
+    margin-top: 20px;
+    border: 3px solid #ffffff;
+}
